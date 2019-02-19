@@ -6,10 +6,10 @@ function insertArticle(article) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(article)
-    });
+    }).then(window.location.reload());
 };
 
-function deleteBrand(id) {
+function deleteArticle(id) {
     const rawResponse = fetch('http://localhost:3000/article/delete', {
     method: 'POST',
     headers: {
@@ -17,9 +17,7 @@ function deleteBrand(id) {
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({"idarticle":id})
-    });
-
-    window.location.reload();
+    }).then(window.location.reload());
 };
 
 function getBrands() {
@@ -65,17 +63,19 @@ methods:{
 
         insertArticle(article);
 
-        window.location.reload(); 
+        //window.location.reload(); 
     },
 
     deleteArticle() {
         let id;
         abmArticulo.articulos.forEach(element => {
             if(element.description == abmArticulo.description) {
-                id = element.idbrand;
+                id = element.idarticle;
             }
         });
-        deleteBrand(id);
+        console.log(id);
+
+        deleteArticle(id);
         
     
     },

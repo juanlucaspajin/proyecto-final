@@ -6,7 +6,7 @@ function insertBrand(brand) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(brand)
-        });
+        }).then(window.location.reload());
 };
 function deleteBrand(id) {
     const rawResponse = fetch('http://localhost:3000/brand/delete', {
@@ -16,7 +16,7 @@ function deleteBrand(id) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({"idbrand":id})
-    });
+    }).then(window.location.reload());
 };
 
 function getBrandByName(name) {
@@ -47,7 +47,7 @@ const abmMarca = new Vue({
             }
             brand.brandName = abmMarca.nombreMarca;
             insertBrand(brand);
-            window.location.reload(); 
+            //window.location.reload(); 
         },
 
         deleteBrands() {
@@ -58,7 +58,7 @@ const abmMarca = new Vue({
                 }
             });
                 deleteBrand(id);
-                window.location.reload(); 
+                //window.location.reload(); 
         
         },
 

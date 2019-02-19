@@ -44,9 +44,9 @@ module.exports = function(app) {
     });
 
     app.post('/article/delete', (req,res) => {
-        let idArticle = req.body.idarticle;
-        console.log(idArticle);
-        Article.deleteArticle(idArticle, (err,data) => {
+        let idDeletedArticle = req.body.idarticle;
+        console.log(idDeletedArticle);
+        Article.deleteArticle(idDeletedArticle, (err,data) => {
             if(!err){
                 console.log(data);
                 res.json({

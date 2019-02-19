@@ -51,7 +51,7 @@ articleModel.insertArticle = (articleData, callback) => {
 articleModel.deleteArticle = (id, callback) => {
     if(connection) {
         connection.query(
-            'DELETE FROM article WHERE idarticle = ?',id,
+            'DELETE FROM article WHERE idarticle = ?',id ,
             (err, result) => {
                 if(err) {throw err}
                 else {
