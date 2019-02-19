@@ -17,6 +17,7 @@ app.use(cors());
 require('./routes/userRoutes')(app);
 require('./routes/brandRoutes')(app);
 require('./routes/articleRoutes')(app);
+require('./routes/shoeRoutes')(app);
 
 app.listen(app.get('port'), () => {
     console.log('Servidor conectado en puerto 3000');

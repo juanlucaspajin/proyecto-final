@@ -8,7 +8,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/alticles/:name', (req,res) => {
+    app.get('/articles/:name', (req,res) => {
         let name = req.params.name;
         Article.getArticleByName(name,(err,data) => {
             res.status(200).json(data)

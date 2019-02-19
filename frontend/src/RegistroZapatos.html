@@ -46,46 +46,61 @@
         </div>
       </nav>
 
-      <div id="abm" class="container">
+      <div id="shoes" class="container">
         <div class="jumbotron">
             <h1>Bienvenido a LG Calzados</h1>
-            <h3>Ingrese nombre de marca a cargar</h3>
-            <input class="form-control mt-2" type="text" v-model="nombreMarca" placeholder="Nombre de marca">
+            <h3>Ingrese nombre el zapato a cargar</h3>
+
+            <div class="input-group mb-2" id="abm">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Articulos</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" v-model="description">
+                  <option selected disabled>Seleccione</option>
+                  <option v-for="article in articulos">{{article.description}}</option>
+                </select>
+            </div>
+            <input class="form-control mt-2" type="number" v-model="size" placeholder="Talle">
+            <input class="form-control mt-2" type="number" v-model="stock" placeholder="Stock">
+            <input class="form-control mt-2" type="number" v-model="price" placeholder="Precio">
             <button type="button"  class="btn btn-success mt-2" data-toggle="modal" data-target="#modalAceptar">Cargar</button>
-        <!-- Modal -->
+        
+        
+        
+            <!-- Modal -->
         <div class="modal fade" id="modalAceptar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">¿Agregar Marca?</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">¿Agregar Zapato?</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  ¿Agregar la marca {{nombreMarca}}?
+                  ¿Agregar talle {{size}}, de articulo {{description}} ?
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" @click="insertBrands()">Aceptar</button>
+                  <button type="button" class="btn btn-primary" @click="insertShoes()">Aceptar</button>
                 </div>
               </div>
             </div>
           </div>
       </div>
       <footer class="page-footer font-small blue pt-4">
-          <!-- Copyright -->
-       <div class="footer-copyright text-center py-3">
-           <p>© 2019 Copyright: LG Calzados</p>
-           <a href="https://www.facebook.com/LGcalzado/"><img src="../assets/facebook.png" alt="Facebook"></a>
-           <a href="https://www.instagram.com/lgcalzados/"><img src="../assets/instagram-logo.png" alt="Instagram"></a> 
-       </div>
-         <!-- Copyright -->
-      </footer>
+            <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            <p>© 2019 Copyright: LG Calzados</p>
+            <a href="https://www.facebook.com/LGcalzado/"><img src="../assets/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/lgcalzados/"><img src="../assets/instagram-logo.png" alt="Instagram"></a> 
+        </div>
+        <!-- Copyright -->
+    </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./abmMarca.js"></script>
+    <script src="./abmZapatos.js"></script>
   
   </body>
 </html>
